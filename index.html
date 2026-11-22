@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice of Heaven | Delicious Artisan Pizza</title>
+    <!-- Link to Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e63946">
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #f4a261;
+            --dark: #1d3557;
+            --light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary);
+        }
+        nav {
+            background-color: var(--primary);
+            padding: 0.8rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card h3 {
+            margin: 1rem 0 0.5rem 0;
+            color: var(--primary);
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Slice of Heaven 🍕</h1>
+        <p>Freshly baked artisan pizzas delivered hot to your door!</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero" id="home">
+        <h2>Taste the Best Pizza in Town</h2>
+        <p>Made with authentic ingredients, rich cheese, and baked to crispy perfection.</p>
+        <a href="#menu" class="btn">View Our Menu</a>
+    </div>
+
+    <div class="container" id="menu">
+        <h2 style="text-align: center; color: var(--dark);">Featured Pizzas</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Pepperoni Pizza">
+                <h3>Classic Pepperoni</h3>
+                <p>Loaded with spicy pepperoni and extra mozzarella cheese.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80" alt="Margherita Pizza">
+                <h3>Margherita Supreme</h3>
+                <p>Fresh tomatoes, sweet basil, and rich melted mozzarella.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=500&q=80" alt="BBQ Chicken Pizza">
+                <h3>BBQ Chicken</h3>
+                <p>Tender chicken breast, tangy BBQ sauce, and red onions.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Slice of Heaven. All rights reserved.</p>
+    </footer>
+
+    <!-- Safe Script to register Service Worker without throwing sandboxed context errors -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                try {
+                    navigator.serviceWorker.register('sw.js')
+                        .then(reg => console.log('Service Worker registered!'))
+                        .catch(err => console.log('Service Worker registration failed: ', err));
+                } catch (e) {
+                    console.log('Service Workers are restricted in this environment.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
